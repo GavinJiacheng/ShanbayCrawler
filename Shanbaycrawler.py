@@ -18,7 +18,7 @@ try:
     user = open("Username&Password.txt")
 except IOError:
     print
-    'ERROR: where is your Username&Password.txt???'
+    'ERROR: Where is your Username&Password.txt???'
 else:
     username = user.readline()
     password = user.readline()
@@ -69,7 +69,7 @@ else:
             fo.write(line + '\n')
         newURL = None
         newpage = None
-        fo.close()
+    fo.close()
 
 
 '''
