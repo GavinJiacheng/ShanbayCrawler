@@ -69,8 +69,7 @@ else:
             fo.write(line + '\n')
         newURL = None
         newpage = None
-
-    fo.close()
+        fo.close()
 
 
 '''
