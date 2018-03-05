@@ -18,7 +18,7 @@ try:
     user = open("Username&Password.txt")
 except IOError:
     print
-    'ERROR: Where is your Username&Password.txt???'
+    'ERROR: where is your Username&Password.txt???'
 else:
     username = user.readline()
     password = user.readline()
@@ -44,7 +44,7 @@ else:
     List_of_words = re.findall ('"content": "(.*?)",' ,webpage.content.decode())
     List_of_phonogram = re.findall ('"pron": "([\s\S]*?)", ' ,webpage.content.decode())
     List_of_chinese = re.findall ('"definition": "([\s\S]*?)",' ,webpage.content.decode())
-    filename = "Words of " + username[0] + ".txt"
+    filename = "Master_Words of " + username[0] + ".txt"
     fo = codecs.open(filename, "w","utf-8")
     fo.write ('The number of words: '+max[0] +'\n')
     for index in range(len(List_of_words)):
@@ -65,10 +65,12 @@ else:
         List_of_chinese = re.findall('"definition": "([\s\S]*?)",', newpage.content.decode())
         for index in range(len(List_of_words)):
             newlistofchi = List_of_chinese[index].encode('utf-8').decode('unicode_escape')
+            newlistofchi = newlistofchi.replace("\r\n", " ")
             line = (List_of_words[index] + "   " + List_of_phonogram[index].encode('utf-8').decode('unicode_escape') + "          " + newlistofchi.replace("\n", " "))
             fo.write(line + '\n')
         newURL = None
         newpage = None
+
     fo.close()
 
 
